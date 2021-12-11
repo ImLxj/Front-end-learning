@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --my-font-size: 50;
+            --my-color: pink;
+            --a: "hello";
+            --b: "world";
+        }
+        .main{
+            font-size: var(--my-font-size);
+            color: var(--my-color,red); /*当自定义的css属性没有值的时候，使用第二个参数*/
+        }
+        .main::after{
+            content: var(--a)var(--b);/*字符串拼接在拼接过程中自定义的属性只能是字符串*/
+        }
+        .fei{
+            font-size: calc(var(--my-font-size) * 3px); /*通过calc()函数可以对自定义的属性进行计算
+            这样当以后适配的时候可以用得到
+            
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        abc
+    </div>
+    <div class="fei">非字符串</div>
+    <script>
+        
+    </script>
+</body>
+</html>
