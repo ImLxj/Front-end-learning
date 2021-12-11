@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            /**
+            1、attr(name|pro|key,val|fn)
+                - 作用获取或者设置属性节点的值
+                    - 如果传递一个参数是获取属性节点的值
+                    - 如果传递两个参数是设置属性节点的值
+                - 注意点：
+                    不管找到多少个元素都会返回第一个元素指定的属性节点的值。
+                    如果是设置属性节点的值，获取多少个就会设置多少个。
+                    如果设置的属性节点的值不存在，则系统会自动新增。
+            2、removeAttr(name)
+                - 删除属性节点
+                - 注意点
+                    会删除所有找的元素的属性节点。
+                - 还可以删除多个属性节点 属性节点与属性节点之间用空格隔开。
+            */
+            // console.log($("span").attr("class"));
+            // console.log($("span").attr("class","box"));
+
+            $("span").removeAttr("class");
+        });
+    </script>
+</head>
+<body>
+    <span class="span1" name = "lxj"></span>
+    <span class="span2" name = "abc"></span>
+</body>
+</html>

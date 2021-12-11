@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            $("father").on("click.lxj",function(){
+                alert("div1");
+            });
+            $("father").on("click",function(){
+                alert("div2");
+            }); 
+            $(".son").on("click.lxj",function(){
+                alert("div3")
+            });
+            /**
+                注意点：
+                    - 利用trigger触发子元素带有命名空间的事件，那么父元素带有相同命名空间的的事件也会被触发。
+                    而父元素没有命名空间的事件不会被触发。
+                    - 利用trigger触发子元素不带有命名空间的事件，那么子元素相同类型和父元素相同类型的所有事件都会被触发。
+
+            */
+            $(".son").trigger("click.lxj");
+
+        });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

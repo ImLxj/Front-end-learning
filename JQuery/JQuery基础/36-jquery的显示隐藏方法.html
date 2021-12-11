@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            $("button").eq(0).click(function(){
+                // show()方法可以直接显示并且带有显示的动画，可以传递参数来规定动画的时间
+                // 还可以传递一个回调函数回调函数是动画显示完成之后才会执行。
+                $("div").show(1000,function(){
+                    alert("显示动画执行完毕");
+                });
+            });
+            $("button").eq(1).click(function(){
+                $("div").hide(1000,function(){
+                    alert("隐藏动画执行完毕");
+                });
+            });
+            $("button").eq(2).click(function(){
+                // toggle()方法 没有就出现 有就消失
+                $("div").toggle(1000,function(){
+                    alert("切换动画执行完毕");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+</body>
+</html>

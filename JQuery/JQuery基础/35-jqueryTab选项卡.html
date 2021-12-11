@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box{
+            width: 440px;
+            height: 298px;
+            border: 1px solid black;
+            margin: 50px auto;
+        }
+        .nav>li{
+            list-style: none;
+            width: 110px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: orange;
+            float: left;
+        }
+        .nav>.current{
+            background-color: gray;
+        }
+        .content>li{
+            list-style: none;
+            width: 440px;
+            height: 298px;
+            background-color: red;
+            display: none;
+        }
+        .content>li:nth-child(1){
+            background-color: red;
+        }
+        .content>li:nth-child(2){
+            background-color: green;
+        }
+        .content>li:nth-child(3){
+            background-color: yellow;
+        }
+        .content>li:nth-child(4){
+            background-color: blue;
+        }
+        .content>.show{
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            //为li Tab创建移入移出事件 
+            /*$(".nav>li").mouseenter(function(){
+                // 改变Tab标签的背景颜色
+                $(this).addClass("current");
+                // 获取到当前元素的索引
+                var index = $(this).index();
+                // 通过索引找到对应的图片
+                var $li = $(".content>li").eq(index);
+                // 显示图
+                $li.addClass("show");
+            })
+            $(".nav>li").mouseleave(function(){
+                ;;
+                $(this).removeClass("current");
+                // 获取到当前元素的索引
+                var index = $(this).index();
+                // 通过索引找到对应的图片
+                var $li = $(".content>li").eq(index);
+                // 隐藏图片
+                $li.removeClass("show");
+            });*/
+            //为li Tab创建移入移出事件 
+            $(".nav>li").mouseenter(function(){
+                // 改变Tab标签的背景颜色
+                $(this).addClass("current");
+                // 通过siblings()方法删除除了当前其他的兄弟元素的背景颜色
+                $(this).siblings().removeClass("current");
+                // 获取到当前元素的索引
+                var index = $(this).index();
+                 // 通过索引找到对应的图片
+                var $li = $(".content>li").eq(index);
+                // 显示图片
+                $li.addClass("show");
+                // 通过siblings()方法删除除了当前其他的兄弟元素的图片
+                $li.siblings().removeClass("show");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul class="nav">
+            <li class="current">HTML5</li>
+            <li>JAVA</li>
+            <li>jquery</li>
+            <li>Vue</li>
+        </ul>
+        <ul class="content">
+            <li class="show"></li>
+            <li ></li>
+            <li ></li>
+            <li ></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+       /* window.onload = function(){
+            // 通过原生的js入口函数可以拿到DOM元素
+            var div = document.getElementsByTagName("div")[0];
+            console.log(div);
+
+            // 通过原生js可以DOM元素的宽高
+            var width = window.getComputedStyle(div).width;
+            console.log(width);
+        };*/
+        /*
+            原生js和jquery的区别
+                原生js会等到DOM元素加载完毕，并且图片也加载完毕才会执行。
+                jQuery会等到DOM元素加载完毕，但不会等图片加载会直接执行。
+        
+        */
+        /*$(document).ready(function(){
+             // 通过原生的jquery入口函数可以拿到DOM元素
+            var $div = $("div");
+            console.log($div);
+            // 通过jquery可以拿到DOM元素的宽高
+            var $width = $div.width();
+            console.log($width);
+        });*/
+
+        // 1.原生的js如果编写了多个入口函数，后面编写的会覆盖前面编写的。
+        // 2.jQuery中编写了多个入口函数，后面的不会覆盖前面的
+        window.onload = function(){
+            alert("hello");
+        }
+        window.onload = function(){
+            alert("hello");
+        }
+
+        $(document).ready(function(){
+            alert("jquery");
+        });
+        $(document).ready(function(){
+            alert("jquery1");
+        });
+    </script>
+</head>
+<body>
+    <div>js和jq的区别</div>
+</body>
+</html>

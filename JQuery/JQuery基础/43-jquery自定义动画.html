@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+        }
+        .one{
+            background-color: red;
+        }
+        .two{
+            background-color: blue;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            // 给按钮绑定点击响应事件
+            $("button").eq(0).click(function(){
+                // animate自定义动画方法(第一个参数是可以传递一个对象来实现动画的实现方式,动画运行事件,动画运动曲线"linear"swing",动画执行完毕后的回调函数)；
+                $(".one").animate({
+                    width : 500
+                },1000,function(){
+                    alert("动画执行完毕");
+                });
+                $(".two").animate({
+                    width : 500
+                },1000,"linear",function(){
+                    alert("动画执行完毕");
+                });
+            });
+            $("button").eq(1).click(function(){
+                $(".one").animate({
+                    width : "+=100"
+                },1000,function(){
+                    alert("动画执行完毕");
+                });
+            });
+            $("button").eq(2).click(function(){
+                $(".one").animate({
+                    // width : "hide"
+                    width : "toggle"
+                },1000,function(){
+                    alert("动画执行完毕");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>操作属性</button>
+    <button>累加属性</button>
+    <button>关键字</button>
+    <div class="one"></div>
+    <div class="two"></div>
+</body>
+</html>

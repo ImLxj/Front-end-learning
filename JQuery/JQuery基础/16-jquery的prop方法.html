@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            /*
+            1、prop(n|p|k,v|f)
+                - 特点和attr一致，只是他是用来操作DOM属性的
+            1、removeProp(name)
+                - 特点和reomveAttr一致。
+            eq()表示第几个。
+            */
+            // $("span").eq(0).prop("dome","abc");
+
+            /*
+                注意点：
+                    - prop不仅能够操作属性还能够操作属性节点。
+
+                官方推荐：
+                    具有true和false两个属性的属性节点，如checked selected disabled 用 prop() 其他的时候用attr();
+            */
+            $("span").prop("class","box");
+            console.log($("input").prop("checked")); // true/false
+            console.log($("input").attr("checked")); // checked / undefined
+        });
+    </script>
+</head>
+<body>
+    <span></span>
+    <span></span>
+    <input type="checkbox" checked>
+</body>
+</html>

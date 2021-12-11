@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div{
+            width: 400px;
+            height: 200px;
+            background-color: red;
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            display: none;
+        }
+        div>span{
+            width: 30px;
+            height: 30px;
+            background-color: yellowgreen;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            // 监听span的点击事件.
+            $("span").click(function(){
+                // remove()方法删除所有匹配的元素。
+                $("div").remove();
+            });
+
+            // 添加广告动画
+            $("div").stop().slideDown(1000).fadeOut(1000).fadeIn(1000);
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+</body>
+</html>

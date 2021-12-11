@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .main{
+            width: 300px;
+            height: 500px;
+            border: 5px solid black;
+            margin: 100px auto;
+        }
+        .main>h2{
+            color: palevioletred;
+            margin: 5px 10px;
+        }
+        ul>li{
+            list-style: none;
+            padding: 5px 10px;
+            border-top: 1px dashed palevioletred;
+        }
+        ul>li:nth-child(-n+3) span{
+            background-color: hotpink;
+        }
+        ul>li>span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            background-color: gray;
+        }
+        .content{
+            overflow: hidden;
+            margin-top: 5px;
+            display: none;
+        }
+        .content>div{
+            width: 80px;
+            height: 120px;
+            background-color: red;
+            float: left;
+        }
+        .content>p{
+            width: 180px;
+            height: 120px;
+            font-size: 10px;
+            line-height: 15px;
+            float: right;
+        }
+        .show .content{
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+           /* $("li").mouseenter(function(){
+                $(this).addClass("show");
+            });
+            $("li").mouseleave(function(){
+                $(this).removeClass("show");
+            });*/
+
+            $("li").hover(function(){
+                $(this).addClass("show");
+            },function(){
+                $(this).removeClass("show");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="main">
+        <h2>电影排行榜</h2>
+        <ul>
+            <li>
+                <span>1</span>电影名称
+                <div class="content">
+                    <div></div>
+                    <p>可是贪玩的小河狸，根本没有注意。这时，狐狸冲了过来，咬住了小河狸，幸好黑熊跑了过来，一掌击倒了狐狸，救下了小河狸。</p>
+                </div>
+            </li>
+            <li>
+                <span>2</span>电影名称
+                <div class="content">
+                    <div></div>
+                    <p>可是贪玩的小河狸，根本没有注意。这时，狐狸冲了过来，咬住了小河狸，幸好黑熊跑了过来，一掌击倒了狐狸，救下了小河狸。</p>
+                </div>
+            </li>
+            <li>
+                <span>3</span>电影名称
+                <div class="content">
+                    <div></div>
+                    <p>可是贪玩的小河狸，根本没有注意。这时，狐狸冲了过来，咬住了小河狸，幸好黑熊跑了过来，一掌击倒了狐狸，救下了小河狸。</p>
+                </div>
+            </li>
+            <li>
+                <span>4</span>电影名称
+                <div class="content">
+                    <div></div>
+                    <p>可是贪玩的小河狸，根本没有注意。这时，狐狸冲了过来，咬住了小河狸，幸好黑熊跑了过来，一掌击倒了狐狸，救下了小河狸。</p>
+                </div>
+            </li>
+            <li>
+                <span>5</span>电影名称
+                <div class="content">
+                    <div></div>
+                    <p>可是贪玩的小河狸，根本没有注意。这时，狐狸冲了过来，咬住了小河狸，幸好黑熊跑了过来，一掌击倒了狐狸，救下了小河狸。</p>
+                </div>
+            </li>
+            <li>
+                <span>6</span>电影名称
+                <div class="content">
+                    <div></div>
+                    <p>可是贪玩的小河狸，根本没有注意。这时，狐狸冲了过来，咬住了小河狸，幸好黑熊跑了过来，一掌击倒了狐狸，救下了小河狸。</p>
+                </div>
+            </li>
+        </ul>   
+    </div>
+    
+</body>
+</html>

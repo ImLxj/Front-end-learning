@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .father{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            /*
+                使用mousemove/mouseout事件的时候，将鼠标移入移出子元素也会相应父元素的事件
+            */
+            /*$(".father").mousemove(function(){
+                console.log("我移入了")
+            });
+            $(".father").mouseout(function(){
+                console.log("我移出了");
+            });*/
+            /*
+                使用mouseenter/mouseleave事件的时候，将鼠标移入移出子元素不会响应父元素的事件
+            */
+           /* $(".father").mouseenter(function(){
+                console.log("我移入了")
+            });
+            $(".father").mouseleave(function(){
+                console.log("我移出了");
+            });*/
+            // 使用hover方法也会 有移入移出的事件效果，传递两个参数就是移入移出，传递一个参数就是同事响应移入移出事件， 
+            $(".father").hover(function(){
+                console.log("我移入了");
+            },function(){
+                console.log("我移出了");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

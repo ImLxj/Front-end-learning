@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            /*
+                满足自定义事件的两个条件
+                    - 事件是通过on来绑定的
+                    - 事件必须通过trigger来触发
+            */
+            $("div").on("myClick",function(){
+                alert("div");
+            });
+            $("div").trigger("myClick");
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

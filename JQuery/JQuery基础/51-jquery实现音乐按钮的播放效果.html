@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div{
+            width: 750px;
+            height: 500px;
+            background-color: aquamarine;
+            position: relative;
+        }
+        div>img{
+            position: absolute;
+            top: 22px;
+            left: 655px;
+            width: 63px;
+            height: 63px;
+        }
+        .play{
+            animation: play 1.5s linear infinite;
+        }
+        @-webkit-keyframes play{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .stop{
+            display: none;
+        }
+    </style>
+    <script>
+        $(function(){
+            // 1、获取到音乐标签
+            var $music = $("#music")[0];
+            // var music = document.getElementById("music");
+            // 1、获取到两个img标签给他们绑定点击事件
+            $("img").click(function () { 
+                // 判断音乐是否正在播放
+
+                console.log(music);
+                if($music.paused){
+                    console.log("我要开始播放了");
+                    $(".play").stop().fadeIn(100);
+                    $(".stop").stop().fadeOut(100);
+                    $music.play();
+                }else{
+                    console.log("我先暂停播放");
+                    $(".stop").stop().fadeIn(100);
+                    $(".play").stop().fadeOut(100);
+                    $music.pause();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <img src="img/musicoff.png" class="stop" alt="">
+        <img src="img/musicon.png" class="play" alt="">
+        <audio id="music" src="media/铃声多多_倔强(Life Live)_网友.mp3" autoplay loop></audio>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+        // off 方法会删除事件，如果不传递参数会删除所有的事件，如果传递一个参数会删除所有的指定类型的事件，
+        // 如果传递两个参数会移除指定类型的指定参数
+        // $("button").on("click",function(){
+            //     alert("hello");
+            // });
+            $("button").click(function(){
+                alert("hello");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>我是按钮</button>
+</body>
+</html>

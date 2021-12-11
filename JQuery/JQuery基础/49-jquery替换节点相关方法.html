@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+
+            /*
+                替换
+                replaceWith(content|fn)
+                replaceAll(selector)
+                    - 替换所有匹配元素为指定元素
+            */
+            $("button").click(function(){
+                // 1、创建一个将要替换的元素
+                var $h6 = $("<h6>我是标题六</h6>");
+                // 2、将指定的元素替换为h6
+                // $("h3").replaceWith($h6);
+                $h6.replaceAll("h1");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>替换节点</button>
+    <h1>我是标题一</h1>
+    <h2>我是标题二</h2>
+    <h3>我是标题三</h3>
+    <p>我是段落</p>
+</body>
+</html>

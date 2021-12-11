@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            // 复制clone([Even[,deepEven]]) 给他传递一个参数为false就是浅复制,传递一个参数为true就是深复制
+            // 浅复制只复制元素不会复制事件，深复制会复制事件
+            $("button").eq(0).click(function(){
+                // 1、浅复制一个元素
+                var $li = $("li:first").clone(false);
+                // 2、将复制的元素添加到ul里面
+                $("ul").append($li);
+            }); 
+            $("button").eq(0).click(function(){
+                // 1、深复制一个元素
+                var $li = $("li:first").clone(true);
+                // 2、将复制的元素添加到ul里面
+                $("ul").append($li);
+            }); 
+        });
+    </script>
+</head>
+<body>
+    <button>浅复制节点</button>
+    <button>深复制节点</button>
+    <ul>
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+</body>
+</html>

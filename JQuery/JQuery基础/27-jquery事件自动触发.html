@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .son{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+
+            /*$(".son").click(function(event){
+                alert("son");
+                return false;
+                event.stopPropagation();
+            });
+            */
+            $(".father").click(function(){
+                alert("father"); 
+
+            });
+            // 自动触发事件
+            // $(".father").trigger("click");
+            $(".father").triggerHandler("click");
+            // 使用trigger自动触发事件的时候会触发冒泡。
+            // 使用triggerHandler自动触发事件的时候不会触发冒泡事件。
+            $(".son").trigger("click");
+
+            $("input[type='submit']").click(function(){
+                alert("submit");
+            });
+            // 使用trigger自动触发事件的时候会触发默认行为。
+            // 使用triggerHandler自动触发事件的时候不会触发默认行为。
+            $("input[type='submit']").trigger("click");
+            $("input[type='submit']").triggerHandler("click");
+            /*
+                但是用在a标签的时候，trigger和triggerHandler都不会触发默认行为，这样我们需要在a标签里面加一个span
+                通过span来触发事件的冒泡。
+            */
+        });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com">注册</a>
+    <form action="http://www.taobao.com">
+        <input type="text">
+        <input type="submit" value="确定">
+    </form>
+</body>
+</html>

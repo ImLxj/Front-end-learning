@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .class1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .class2{
+            border: 10px solid black;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            /*
+                addClass(class|fn)
+                    - 添加一个类
+                    - 如果要添加多个类用空格隔开。
+                removeClass([class|fn])
+                    - 删除一个类
+                    - 如果要删除多个类需要用空格隔开。
+                toggleClass(class|fn[,sw])
+                    - 切换类 ： 有就添加 没有就删除。
+            
+            */
+            var btn = document.getElementsByTagName("button");
+            btn[0].onclick = function(){
+                $("div").addClass("class1 class2");
+            }
+            btn[1].onclick = function(){
+                $("div").removeClass("class1");
+            }
+            btn[2].onclick = function(){
+
+            }
+        });
+    </script>
+</head>
+<body>
+    <button>添加类</button>
+    <button>删除类</button>
+    <button>切换类</button>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 1、逐个设置
+            /*$("div").css("width","100px");
+            $("div").css("height","100px");
+            $("div").css("background","red");*/
+
+            // 2、链式设置
+            // 注意最好链三个 要不代码阅读性很差
+            $("div").css("width","100px").css("height","100px").css("background","blue");
+
+            // 3、批量设置
+            $("div").css({
+                width:"100px",
+                height:"100px",
+                background:"red"
+            });
+            // 获取样式，直接将css属性名当字符串传进来就可以了
+            console.log($("div").css("width"));
+
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

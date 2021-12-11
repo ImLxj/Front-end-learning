@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+        /*
+            jquery两种事件绑定形式
+            1、eventName(function(){});
+                编码效率高 / 部分js事件jquery里面没有实现，所以不能添加
+            2、on(eventName,function(){});
+                编码效率低 / 所有的js事件都可以实现
+        */
+            // 注意点：可以添加多个事件或者多个不同的事件不会进行事件的覆盖。
+            // $("button").on("click",function(){
+            //     alert("hello");
+            // });
+            $("button").click(function(){
+                alert("hello");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>我是按钮</button>
+</body>
+</html>

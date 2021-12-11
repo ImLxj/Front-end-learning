@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            /*
+                empty()
+                    - 删除指定元素的内容和子元素，指定元素不会被删除
+                remove([expr]) 
+                detach([expr])
+                    - 删除指定元素
+                
+            */
+            $("button").click(function(){
+                // $("div").remove();
+                // $("div").empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>删除节点</button>
+    <ul>
+        <li class="item">我是1个li</li>
+        <li>我是2个li</li>
+        <li class="item">我是3个li</li>
+        <li>我是4个li</li>
+        <li class="item">我是5个li</li>
+    </ul>
+    <div>
+        我是div
+        <p>我是段落</p>
+    </div>
+</body>
+</html>

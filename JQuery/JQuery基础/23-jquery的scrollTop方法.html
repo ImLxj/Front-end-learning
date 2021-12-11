@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .scroll{
+            width: 100px;
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //编写jQuery代码
+            var btn = document.getElementsByTagName("button");
+            // 获取
+            btn[0].onclick = function(){
+                // 获取滚动条的水平偏移位
+                console.log($(".scroll").scrollTop());
+                // 获取网页滚动的水平偏移位
+                // 注意点：为了保证浏览器的兼容，需要按照如下写法。
+                console.log($("html").scrollTop() + $("body").scrollTop());
+            }
+            // 设置
+            btn[1].onclick = function(){
+                // 设置滚动条的水平偏移位
+                $(".scroll").scrollTop(200);
+                // 设置网页滚动条的水平偏移位
+                // 注意点：为了保证浏览器的兼容，需要按照如下写法。
+                $("html,body").scrollTop(200);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="scroll">我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+    </div>
+    <button>获取</button>
+    <button>设置</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
