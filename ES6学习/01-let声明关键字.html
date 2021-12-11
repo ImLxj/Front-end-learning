@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let声明关键字</title>
+</head>
+<body>
+    <script>
+        let a;
+        let c,d;
+
+        // 1、变量不能重复声明
+        // let star = "吴彦祖";
+        // let star = "我很帅"; //会在浏览器报错
+
+        // 2、块级作用域 全局，函数，eval
+        // if else while for switch
+        // {
+        //     let girl = "小红";
+        // }
+        // console.log(girl);
+
+        // 3、不存在变量提升
+        // let song = "恋爱达人";
+
+        // 4、不影响作用域链的效果
+        {
+            let school = "学校";
+            function fun(){
+                console.log(school);
+            }
+            fun();
+        }
+    </script>
+</body>
+</html>

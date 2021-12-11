@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let实践练习</title>
+    <style>
+        .page-header{
+            width: auto;
+
+            border-bottom: 1px bisque black;
+        }
+        .item{
+            width: 100px;
+            height: 50px;
+            border: 1px solid greenyellow;
+            margin-left: 10px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header">点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        // 1、获取到所有的方块
+        let item = document.getElementsByClassName('item');
+
+        for(let i = 0 ; i < item.length ; i ++){
+            item[i].onclick = function(){
+                // this.style.background = "pink";
+                item[i].style.background = "pink";
+            }
+            console.log(i);
+        }
+        
+        /*
+            因为let有块作用域的属性，所以每一次for都会产生一个新的块作用域这样我们的i每一次循环自加的值都是互不干扰的，
+            但是使用var 的话 他每一次循环都会影响到下一次的i的值 ，最后i就会变成3 
+        */
+    </script>
+</body>
+</html>
