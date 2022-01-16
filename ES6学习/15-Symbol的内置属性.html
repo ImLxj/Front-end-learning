@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Symbol.instanceof 当其他对象使用instanceof运算符，判断是否为该对象的实例时，会调用这个方法。
+        class Person{
+            static [Symbol.hasInstance](){
+                console.log("我被用来检测类型了");
+            }
+        }
+        
+        let a = {};
+        console.log(a instanceof Person);
+
+        // Symbol.isConcatSpreadable 使用concat函数的时候是否将后续的数组可以进行展开
+        let arr = ["1","2","3"];
+        let arr2 = ["4","5","6"];
+        // 他是返回的布尔值,Symbol的内置属性可以扩展对象的功能
+        arr[Symbol.isConcatSpreadable] = true;
+        console.log(arr.concat(arr2));
+    </script>
+</body>
+</html>

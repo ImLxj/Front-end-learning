@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let classes = {
+            name : "终极一班",
+            stus : [
+                "xiaoming",
+                "xiaohong",
+                "xiaotian",
+                "xiaolan"
+            ],
+            [Symbol.iterator](){
+                // 索引变量
+                let index = 0;
+                // 解决this指向的问题，因为我们需要this的值是当前的对象，所以就需要固定当前的this
+
+                let _this = this;
+                return {
+                    next : function(){
+                        if(index < _this.stus.length){
+                            // 处理返回结果
+                            const result = {value : _this.stus[index],done : false};
+                            // 下标自增
+                            index ++;
+                            return result;
+                        }else{
+                            return {value : undefined , done : true};
+                        }
+                    }
+                }
+            }
+        }
+
+        for(let v of classes){
+            console.log(v);
+        }
+    </script>
+
+</body>
+</html>

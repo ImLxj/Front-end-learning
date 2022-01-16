@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个symbol，他是一个唯一的数据类型
+        let s = Symbol();
+        console.log(s,typeof s);
+        let s2 = Symbol('haha');
+        let s3 = Symbol("haha");
+        console.log(s2 === s3);
+
+        // Symbol.for创建,是以函数对象的方式进行创建，所以他们两个指向的是同一个内存地址
+        let s4 = Symbol.for('haha');
+        let s5 = Symbol.for("haha");
+        console.log(s4 === s5);
+
+        // 不能进行其他数据进行运算
+        
+    </script>
+</body>
+</html>

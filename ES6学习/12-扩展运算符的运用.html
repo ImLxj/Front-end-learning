@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 1、数组的合并 
+        // const F4 = ['赵四','刘能'];
+        // const tfboy = ['王源','王俊凯','易烊千玺'];
+        // // // concat用于数组的合并，合并两个或两个以上的数组并返回结果，这个结果不会改变原来的数组，而是作为一个新的数组进行返回。
+        // // const tf4 = F4.concat(tfboy);
+        // // console.log(tf4);
+        // const tf4 = [...F4,...tfboy];
+        // console.log(tf4);
+
+        // // 2、数组的克隆
+        // const sanzhihua = ["E","G","M"];
+        // const sanyecao = [...sanzhihua];
+        // console.log(sanyecao);
+
+        // 3、将伪数组转换为真正的数组
+        const divs = document.querySelectorAll("div");
+        const divArr = [...divs];
+        console.log(divArr);
+    </script>
+</body>
+</html>
