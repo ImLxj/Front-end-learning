@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        姓: <input type="text" v-model="surname"><br>
+        名: <input type="text" v-model="name"><br>
+        <!-- 计算属性后面不能想methods一样后面加括号这样做是错误的 -->
+        姓名: <span>{{fullName}}</span>
+    </div>
+    <script>
+        Vue.config.productionTip = false  //阻止 vue 在启动时生成生产提示
+    
+        const vm = new Vue({
+            el : "#root",
+            data : {
+                surname:"张",
+                name:"三"
+            },
+            computed: {
+                // 完整写法
+                /*fullName:{
+                    get(){
+                        return this.surname + "-" + this.name
+                    },
+                    set(value){
+                        const arr = value.split("-")
+                        this.surname = arr[0]
+                        this.name = arr[1]
+
+                    }
+                }*/
+                // 简写
+                fullName(){
+                    console.log("get被调用了");
+                    return this.surname + "-" + this.name
+                }
+            },
+        })
+    </script>
+</body>
+</html>
