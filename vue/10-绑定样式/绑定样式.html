@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .basic{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .happy{
+            background-color: red;
+        }
+        .sad{
+            background-color: saddlebrown;
+        }
+        .normal{
+            background-color: seagreen;
+        }
+
+        .a{
+            font-size: 50px;
+        }
+
+        .b{
+            font-weight: bold;
+        }
+        .c{
+            color: yellowgreen;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        绑定样式
+            1.class样式
+                写法 :class="xxx" xxx可以是字符串、对象、素质
+                    字符串写法适用于：类名不确定、要动态获取。
+                    对象写法适用于：要绑定多个样式，个数不确定，名字也不确定
+                    数组写法适用于，要绑定多个样式，个数确定，名字也确定，但不确定用不用
+            2.style样式
+                :style="{fontSize:xxxx}"其中xxx是动态值
+                :style="{a,b}"其中a，b是样式对象、
+     -->
+    <div id="root">
+        <!-- 绑定class样式---字符串写法，适用于：样式的类名不确定需要动态去指定 -->
+        <div class="basic" :class="mood" @click="changeMood">{{name}}</div><br><br>   
+        
+        <!-- 绑定class样式--数组写法，适用于：要绑定的样式个数不确定、名字也不确定 -->
+        <div class="basic" :class="classArr" @click="changeMood">{{name}}</div><br><br>
+        
+        <!-- 绑定class样式--数组写法，适用于：要绑定的样式个数确定、名字也确定，但要动态决定用不用 -->
+        <div class="basic" :class="classObj" @click="changeMood">{{name}}</div><br><br>
+    
+        <!--  -->
+    </div>
+    <script>
+        Vue.config.productionTip = false  //阻止 vue 在启动时生成生产提示
+        
+        new Vue({
+            el : "#root",
+            data : {
+                name:'张三',
+                mood:"happy",
+                classArr:['a','b','c'],
+                classObj:{
+                    a:false,
+                    b:false
+                }
+            },
+            methods: {
+                changeMood(){
+                    const arr = ['happy','sad','normal']
+                    const index = Math.floor(Math.random()*3)
+                    this.mood = arr[index]
+                }
+            },
+        })
+    </script>
+</body>
+</html>

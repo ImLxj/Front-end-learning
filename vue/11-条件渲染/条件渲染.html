@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        条件渲染
+            1.v-if
+                写法：
+                    (1).v-if="表达式"
+                    (2).v-else-if="表达式"
+                    (3).v-else="表达式"
+                适用于：切换频率较低的场景
+                特点:不展示的DOM元素直接被移除
+                注意:v-if可以和 v-else-if 、v-else 一起使用，但要求结构不能被打断
+
+            2.v-show
+                写法: v-show="表达式"
+                适用于:IE换频率较高的场景
+                特点:不展示DOM元素未被移除，仅仅是使用样式隐藏掉
+
+            3.备注:使用v-if的时候，元素可能无法获取到，而是用v-show一定可以获取到
+     -->
+    <div id="root">
+        <h2>当前n的值是{{n}}</h2>
+        <button @click="n++">点我n+1</button>
+
+        <!-- 使用v-show做条件渲染 -->
+        <h2 v-show="a">你好，我叫{{name}}</h2>
+
+        <!-- 使用v-if做条件渲染 -->
+        <h2 v-if="a">你好，我叫{{name}}</h2>
+
+        <!-- v-else 和 v-else-if -->
+        <div v-if="n === 1">赵四</div>
+        <div v-else-if="n === 2">刘能</div>
+        <div v-else-if="n === 3">马国强</div>
+        <div v-else>赵本山</div>
+
+        <!-- v-if与template 配合使用 -->
+        <template v-if="n === 1">
+            <h2>1</h2>
+            <h2>2</h2>
+            <h2>3</h2>
+        </template>
+    </div>
+    <script>
+        Vue.config.productionTip = false  //阻止 vue 在启动时生成生产提示
+    
+        new Vue({
+            el : "#root",
+            data : {
+                name:"张三",
+                a:true,
+                n:0
+            }
+        })
+    </script>
+</body>
+</html>
