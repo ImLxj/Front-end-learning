@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 题目1：求1~100的和？ -->
+    <div>请输入你要求几-几之间的和</div>
+    <input type="text" id="start" placeholder="初值">
+    <input type="text" id="end" placeholder="循环次数">
+    <button id="btn">得出结果</button>
+    <div id="result"></div>
+    <script>
+        //  因为变量的声明 使用var的时候不可以直接获取到input的value值。
+        var count = document.getElementById('end');
+        var first = document.getElementById('start');
+        var btn = document.getElementById('btn');
+        var result = document.getElementById('result');
+        btn.onclick = function(){
+            let sum = 0;
+            for(var i = first.value; i <= count.value; i ++){
+                sum = parseInt(sum + i)
+            }
+            result.innerText = first.value + "-" + count.value + "的和为" + sum;
+        }
+    </script>
+</body>
+</html>
