@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        button{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Vue监视数据的原理：
+            1. vue会监视data中所有层次的数据
+
+            2.如何检测对象中的数据》
+                通过setter实现监视，且要在new Vue时就传入要监测的数据。
+                (1).对象中后追加的属性，Vue默认不做响应式处理
+                (2).如需给后追加的属性做到响应式，请使用如下API：
+                    Vue.set(target.propertyName/index .value)或
+                    vm.$set(target.propertyName/index .value)
+            
+            3.如何检测数组中的数据？
+                通过包裹数组更新元素的方法实现，本质就是做了两件事：
+                    (1).调用原生对应的方法对数据进行更新。
+                    (2).重新解析模板，进而更新页面
+            
+            4.在vue修改数组中的某个元素一定要用如下方法：
+                (1).使用这个API：push()、shift()、unshift()、splice()、reverse()
+                (2).Vue.set() 或 vm.$set
+
+            注意：Vue.set() 和 vm.$set() 不能给vm或vm的跟数据对象添加属性！！
+     -->
+    <div id="root">
+        <h2>学生信息</h2>
+
+        <button @click="addAge">年龄+1岁</button><br>
+        <button @click="addSex">添加性别属性，默认值：男</button><br>
+        <button @click="addFriend">在列表首位添加一个朋友</button><br>
+        <button @click="updateFriend">修改第一个朋友的名字为：张三</button><br>
+        <button @click="addHobby">添加一个爱好</button><br>
+        <button @click="updateHobby">修改第一个爱好为：开车</button><br>
+
+        <h4>姓名:{{student.name}}</h4>       
+        <h4>年龄:{{student.age}}</h4>
+        <h4 v-if="student.sex">性别:{{student.sex}}</h4>
+        <h4>爱好</h4>
+        <ul>
+            <li v-for="(h,index) in student.hobby" :key="index">
+                {{h}}
+            </li>
+        </ul>  
+        <h4>朋友们</h4>
+        <ul>
+            <li v-for="(f,index) in friends" :key="index">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>  
+    </div>
+    <script>
+        Vue.config.productionTip = false  //阻止 vue 在启动时生成生产提示
+        
+        new Vue({
+            el : "#root",
+            data : {
+                student:{
+                    name:"tom",
+                    age:18,
+                    hobby:['抽烟','喝酒','烫头']
+                },
+                friends:[
+                    {name:"jerry",age:36},
+                    {name:"tony",age:26}
+                ]
+            },
+            methods: {
+                addAge(){
+                    return this.student.age = this.student.age + 1
+                },
+                addSex(){
+                    Vue.set(this.student,'sex','男')
+                },
+                addFriend(){
+                    this.friends.splice(0,0,{name:"王五",age:20})
+                },
+                updateFriend(){
+                    this.friends.splice(0,1,{name:"张三",age:20})
+                },
+                addHobby(){
+                    this.student.hobby.push('学习')
+                },
+                updateHobby(){
+                    this.student.hobby.splice(0,1,"开车")
+                }
+            },
+        })
+   </script>
+</body>
+</html>
