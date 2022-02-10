@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        v-clock指令(没有值)
+            1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-clock属性。
+            2.使用css配合v-clock可以解决网速慢是页面展示出{{xxx}}的问题
+     -->
+    <div id="root">
+        <h2 v-clock>{{name}}</h2>         
+    </div>
+    <script>
+        Vue.config.productionTip = false  //阻止 vue 在启动时生成生产提示
+        
+        new Vue({
+            el : "#root",
+            data : {
+                name: "好好学习，天天向上"
+            }
+        })
+    </script>
+</body>
+</html>
