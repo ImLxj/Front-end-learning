@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个明星类
+        class Star{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            // 给明星类里面添加一个唱歌的sing方法
+            sing() {
+                console.log("我叫吴彦祖我会唱歌");
+            }
+        }
+        // 创建Star类的实例对象
+        let star = new Star('吴彦祖',50);
+        // 调用需要加上小括号,因为它本身就是一个函数
+        star.sing()
+
+        // (1). 我们类里面所有的函数都不需要写function
+        // (2). 多个函数之前不需要添加逗号分隔
+    </script>
+</body>
+</html>
